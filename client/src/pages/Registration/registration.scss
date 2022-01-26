@@ -1,0 +1,31 @@
+.registration {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__form {
+		margin: 145px auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 537px;
+		height: 345px;
+		border: 1px solid white;
+		border-radius: 10px;
+		filter: drop-shadow(4px 4px 4px rgba(92, 92, 92, 0.25));
+		background: #ffffff;
+		&-title {
+			margin-bottom: 30px;
+			font-weight: bold;
+			font-size: 28px;
+			line-height: 33px;
+			color: #566885;
+		}
+      &-btn{
+        width: 80%;
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 0 0 0;
+      }
+	}
+}
