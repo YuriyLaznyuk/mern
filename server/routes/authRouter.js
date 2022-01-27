@@ -24,7 +24,7 @@ router.post(
 				return res.status(400).json({message: `this email:${email} is use`});
 			}
 			const hashPassword = await bcrypt.hash(password, 5);
-			const newUser = await User.create({email, password: hashPassword});
+			const newUser = await User.create({...req.body, password: hashPassword});
 			res.status(201).json({message: 'user create', user: newUser});
 		} catch (e) {
 			console.log({message: 'Server error'});

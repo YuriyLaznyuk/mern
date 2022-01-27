@@ -16,6 +16,10 @@
 	font-size: 20px;
 	line-height: 23px;
 	color: #566885;
+	a{
+		text-decoration: none;
+		color: #566885;
+	}
 
 	&__disk {
 		@include center;
@@ -35,9 +39,6 @@
 			margin: 0 0 0 20px;
 			cursor: pointer;
 		}
-		a{
-			text-decoration: none;
-			color: #566885;
-		}
+
 	}
 }

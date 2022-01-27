@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Input from '../../utils/Input/Input';
 import Button from '../../utils/Button/Button';
-import {registrationUser} from '../../store/action-creators/user';
 import '../Registration/registration.scss';
 
 const Login = () => {
@@ -24,11 +23,7 @@ const Login = () => {
 					placeholder='input password'
 				/>
 				<div className='registration__form-btn'>
-					<Button
-						onClick={() => registrationUser({email, password})}
-						type='button'
-						value='SEND'
-					/>
+					<Button type='button' value='SEND' />
 				</div>
 			</div>
 		</div>

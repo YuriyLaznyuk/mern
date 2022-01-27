@@ -5,12 +5,19 @@ import Button from '../../utils/Button/Button';
 import {registrationUser} from '../../store/action-creators/user';
 
 const Registration = () => {
+	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	return (
 		<div className='registration'>
 			<div className='registration__form'>
 				<div className='registration__form-title'>registration</div>
+				<Input
+					value={name}
+					setValue={setName}
+					type='text'
+					placeholder='input name'
+				/>
 				<Input
 					value={email}
 					setValue={setEmail}
@@ -25,7 +32,7 @@ const Registration = () => {
 				/>
 				<div className='registration__form-btn'>
 					<Button
-						onClick={() => registrationUser({email, password})}
+						onClick={() => registrationUser({name, email, password})}
 						type='button'
 						value='SEND'
 					/>

@@ -8,9 +8,13 @@ const Navbar = () => {
 		<div className='navbar'>
 			<div className='navbar__disk'>
 				<div className='navbar__disk-svg'>
-					<Disk />
+					<Link to='/'>
+						<Disk />
+					</Link>
 				</div>
-				<div className='navbar__disk-mern'>MERN CLOUD</div>
+				<div className='navbar__disk-mern'>
+					<Link to='/'>MERN CLOUD</Link>
+				</div>
 			</div>
 			<div className='navbar__service'>
 				<div className='navbar__service-log'>
