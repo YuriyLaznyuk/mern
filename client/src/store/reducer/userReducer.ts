@@ -1,4 +1,5 @@
 import {
+	IResponse,
 	IUser,
 	IUserState,
 	UserAction,
@@ -8,7 +9,7 @@ import {
 const defaultState: IUserState = {
 	user: {} as IUser,
 	isAuth: false,
-	login: false,
+	login: {} as IResponse,
 };
 export const userReducer = (state = defaultState, action: UserAction) => {
 	switch (action.type) {
@@ -18,6 +19,12 @@ export const userReducer = (state = defaultState, action: UserAction) => {
 			return {...state, isAuth: action.payload};
 		case UserTypeAction.USER_REGISTRATION:
 			return {...state, user: action.payload};
+		case UserTypeAction.USER_LOGOUT:
+			return {
+				...state,
+				isAuth: action.payload.isAuth,
+				login: action.payload.login,
+			};
 		default:
 			return state;
 	}

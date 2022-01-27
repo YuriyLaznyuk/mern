@@ -2,10 +2,14 @@ import React, {useState} from 'react';
 import Input from '../../utils/Input/Input';
 import Button from '../../utils/Button/Button';
 import '../Registration/registration.scss';
+import {useAction} from '../../hooks/useAction';
+import {useNavigate} from 'react-router-dom';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const {loginUser} = useAction();
+	const navigate = useNavigate();
 	return (
 		<div className='registration'>
 			<div className='registration__form'>
@@ -23,7 +27,11 @@ const Login = () => {
 					placeholder='input password'
 				/>
 				<div className='registration__form-btn'>
-					<Button type='button' value='SEND' />
+					<Button
+						onClick={() => loginUser({email, password}, () => navigate('/'))}
+						type='button'
+						value='SEND'
+					/>
 				</div>
 			</div>
 		</div>
