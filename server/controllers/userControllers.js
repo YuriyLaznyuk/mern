@@ -44,6 +44,7 @@ exports.loginUser = async (req, res) => {
 				avatar: user.avatar,
 				name: user.name,
 			},
+			message: 'success',
 		});
 	} catch (e) {
 		console.log(e);
