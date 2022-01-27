@@ -51,3 +51,25 @@ exports.loginUser = async (req, res) => {
 		res.status(400).json({message: e.message});
 	}
 };
+
+exports.authUser = async (req, res) => {
+	try {
+		const user = await User.findOne({_id: req.user.id});
+		const token = jwt.sign({id: user.id}, process.env.KEY, {expiresIn: 200});
+		return res.json({
+			token,
+			user: {
+				id: user.id,
+				email: user.email,
+				diskSpace: user.diskSpace,
+				usedSpace: user.usedSpace,
+				avatar: user.avatar,
+				name: user.name,
+			},
+			message: 'success auth',
+		});
+	} catch (e) {
+		console.log(e);
+		res.json({message: 'Server error'});
+	}
+};
