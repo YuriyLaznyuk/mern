@@ -1,0 +1,44 @@
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.navbar {
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #ffffff;
+	box-shadow: 0 3px 4px rgba(92, 92, 92, 0.25);
+	padding: 0 150px 0 150px;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+	color: #566885;
+	a{
+		text-decoration: none;
+		color: #566885;
+	}
+
+	&__disk {
+		@include center;
+
+		&-mern {
+			margin: 0 0 0 20px;
+		}
+		&-svg {
+		}
+	}
+	&__service {
+		@include center;
+		&-log {
+			cursor: pointer;
+		}
+		&-reg {
+			margin: 0 0 0 20px;
+			cursor: pointer;
+		}
+
+	}
+}
