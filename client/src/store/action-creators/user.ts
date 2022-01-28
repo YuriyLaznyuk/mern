@@ -46,10 +46,28 @@ export const loginUser =
 		}
 	};
 
-export const logout = () => async (dispatch: Dispatch<UserAction>) => {
+export const logout = () => (dispatch: Dispatch<UserAction>) => {
 	localStorage.removeItem('token');
 	dispatch({
 		type: UserTypeAction.USER_LOGOUT,
 		payload: {login: {} as IResponse, isAuth: false},
 	});
+};
+
+export const authUser = () => async (dispatch: Dispatch<UserAction>) => {
+	try {
+		const response = await fetch(`${url}/api/user/auth`, {
+			method: 'POST',
+			headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
+		});
+		const json = await response.json();
+		if (json.token) {
+			localStorage.setItem('token', json.token);
+			dispatch({type: UserTypeAction.USER_AUTH, payload: true});
+			dispatch({type: UserTypeAction.USER_LOGIN, payload: json.user});
+		}
+	} catch (e) {
+		localStorage.removeItem('token');
+		console.log('error ', (e as Error).message);
+	}
 };
